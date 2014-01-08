@@ -13,8 +13,8 @@ import os
 os.chdir('/home/bing/Projects/dataiap')
 
 #reader = csv.DictReader(open(sys.argv[1], 'r'))
-#reader = csv.DictReader(open('datasets/donations_sampled.csv', 'r'))
-reader = csv.DictReader(open('datasets/donations.csv', 'r'))
+reader = csv.DictReader(open('datasets/donations_sampled.csv', 'r'))
+#reader = csv.DictReader(open('datasets/donations.csv', 'r'))
 obamadonations = defaultdict(lambda:0)
 mccaindonations = defaultdict(lambda:0)
 
