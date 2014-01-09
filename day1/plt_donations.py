@@ -13,8 +13,8 @@ import os
 os.chdir('/home/bing/Projects/dataiap')
 
 #reader = csv.DictReader(open(sys.argv[1], 'r'))
-#reader = csv.DictReader(open('datasets/donations_sampled.csv', 'r'))
-reader = csv.DictReader(open('datasets/donations.csv', 'r'))
+#reader = csv.DictReader(open('datasets/donations/donations_sampled.csv', 'r'))
+reader = csv.DictReader(open('datasets/donations/donations.csv', 'r'))
 obamadonations = defaultdict(lambda:0)
 mccaindonations = defaultdict(lambda:0)
 
@@ -40,4 +40,4 @@ fig = plt.figure(figsize=(15,7))
 plt.plot(xs1, ys1, label='Obama\'s Donations')
 plt.plot(xs2, ys2, label='McCain\'s Donations')
 plt.legend(loc='upper center', ncol=4)
-plt.savefig('datasets/donation_by_date.png', format='png')
+plt.savefig('day1/donation_by_date.png', format='png')

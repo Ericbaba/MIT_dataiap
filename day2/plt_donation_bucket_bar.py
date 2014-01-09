@@ -13,8 +13,8 @@ import os
 os.chdir('/home/bing/Projects/dataiap')
 
 #reader = csv.DictReader(open(sys.argv[1], 'r'))
-#reader = csv.DictReader(open('datasets/donations_sampled.csv', 'r'))
-reader = csv.DictReader(open('datasets/donations.csv', 'r'))
+#reader = csv.DictReader(open('datasets/donations/donations_sampled.csv', 'r'))
+reader = csv.DictReader(open('datasets/donations/donations.csv', 'r'))
 obamadonations = defaultdict(lambda:0)
 mccaindonations = defaultdict(lambda:0)
 
@@ -67,4 +67,4 @@ subplot.bar([x+width for x in xs2], ys2, color='green', linewidth=0, label='McCa
 subplot.legend(loc='upper left', ncol=1)
 subplot.set_title('Donation Buckets')
 subplot.set_xlabel('$100 Buckets')
-plt.savefig('datasets/donation_buckets.png', format='png')
+plt.savefig('day2/donation_buckets.png', format='png')
