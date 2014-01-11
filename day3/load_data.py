@@ -118,7 +118,11 @@ print "p-value", model.Fpv
 print "coefficients", model.b
 print "R-squared and adjusted R-squared:", model.R2, model.R2adj
 
+
+## Linear regression with scikit-learn package
 from sklearn import linear_model
 lr_model = linear_model.LinearRegression()
 lr_model.fit(measures_arr, ypll_arr)
 lr_model.coef_
+lr_model.intercept_
+lr_model.score(measures_arr, ypll_arr)
