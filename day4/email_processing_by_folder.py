@@ -12,6 +12,11 @@ from collections import Counter, defaultdict
 
 def get_terms(terms):
     terms = terms.lower().split()
+    #ex7, stop at the first ">"
+    try:
+        terms = terms[:terms.index('>')]
+    except:
+        pass
     terms = filter(lambda term: len(term) > 3, terms)
     from email_util import STOPWORDS
     terms = filter(lambda term: term not in STOPWORDS, terms)
@@ -26,10 +31,22 @@ def get_terms(terms):
 # calculate term frequency
 folder_tf = defaultdict(Counter)
 
+
 for e in EmailWalker('../datasets/emails/lay-k'):
     #terms_in_email = e['text'].split()
     terms_in_email = get_terms(e['text'])
     folder_tf[e['folder']].update(terms_in_email)
+
+#ex8, normalizing weights
+def cal_i2norm(vect):
+    vect = [item*item for item in vect]
+    return (math.sqrt(sum(vect)))
+
+for key in folder_tf.keys():
+    vect = [v for (k, v) in folder_tf[key].items()]    
+    vect_i2norm = cal_i2norm(vect)
+    i2nrom_value = dict([(k, v/vect_i2norm) for (k, v) in folder_tf[key].items()])
+    folder_tf[key] = i2nrom_value
 
 
 # calculate inverse document frequency
